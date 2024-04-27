@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LazyDuck - 2DO</title>
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main id="root">
+      <div class="header">
+        <input name="todoInput" placeholder="Add new task..." class="input_box" />
+      </div>
+      <div class="container">
+        <article class="task_container">
+          <h3>Incomplete</h3>
+          <ul class="task__list" id="task__incomplete">
+          </ul>
+        </article>
+        <article class="task_container">
+          <h3>In Progress</h3>
+          <ul class="task__list" id="task__progress">
+          </ul>
+        </article>
+        <article class="task_container">
+          <h3>Completed</h3>
+          <ul class="task__list" id="task__completed">
+          </ul>
+        </article>
+      </div>
+    </main>
+    <script src="./app.js"> </script>
+  </body>
+</html>

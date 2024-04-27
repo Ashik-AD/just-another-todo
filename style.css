@@ -1,0 +1,175 @@
+:root {
+  --fg-col: #25242d;
+  --bg-col: #1f1f25;
+  --txt-col: #f7f7f8;
+  --border-col: #8d8fa3;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body {
+  min-height: 100dvh;
+  min-width: 100dvw;
+  background-color: var(--bg-col);
+  color: var(--txt-col);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  overflow: hidden;
+}
+
+li {
+  list-style-type: none;
+}
+
+#root {
+  padding-inline: 32px;
+  padding-top: 12rem;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 2rem;
+}
+
+.input_box {
+  background-color: #30303b;
+  padding: 14px 16px;
+  color: inherit;
+  font-size: 18px;
+  border: 2px solid;
+  border-color: var(--border-col);
+  border-radius: 8px;
+  min-width: 320px;
+
+  &:focus {
+    border-color: #5a5b6f;
+  }
+}
+
+.container {
+  display: grid;
+  width: 100%;
+  max-width: 1200px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-block: 24px;
+}
+
+.task_container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 300ms;
+
+  h3 {
+    font-size: 20px;
+  }
+
+  &:nth-child(1) h3 {
+    color: red;
+  }
+
+  &:nth-child(2) h3 {
+    color: blue;
+  }
+
+  &:nth-child(3) h3 {
+    color: green;
+  }
+
+  .task__list {
+    max-height: 800px;
+    background: var(--fg-col);
+    padding: 18px 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+
+    .task__item,
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background: #383842;
+      }
+    }
+  }
+
+  #task__incomplete {
+
+    .task__item,
+    li {
+      color: #6f7188;
+    }
+  }
+
+  #task__progress {
+
+    .task__item,
+    li {
+      color: #5151ec;
+    }
+  }
+
+  #task__completed {
+
+    .task__item,
+    li {
+      color: #1e772d;
+    }
+  }
+}
+
+.task__item-dragged {
+  animation-name: dragged;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes dargged {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 50%;
+  }
+}
+
+.create__space {
+  margin-top: 80px;
+  transition: all 200ms linear;
+}
+
+.empty_task_message {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.5;
+  padding: 8px 36px;
+}
